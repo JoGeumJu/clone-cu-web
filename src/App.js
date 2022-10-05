@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
+import styled from 'styled-components';
 import './App.css';
+
+import Main from './pages/Main';
+
+const Wrapper = styled.div`
+  // ★레이아웃 설정★
+  display:flex;
+  flex-direction: column;
+  // ★박스 크기 및 여백 설정★
+  width:100vw;
+  height:100vh;
+  // ★내부 설정★
+  // ★행동 설정★
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Main/>
+    </Wrapper>
   );
 }
 
