@@ -1,0 +1,43 @@
+/* (NavHeaderMenu)depth hover시 column 나열인 depth 생성 */
+.depth:hover .sub_depth {
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+  left:50%;
+  top:40px;
+  transform: translateX(-50%);
+  width:auto;
+  z-index: 120;
+  animation: riseup 0.3s ease 0s normal 1 none;
+}
+@media only screen and (max-width: 1370px) {
+    .depth:hover .sub_depth{
+        display: none;
+    }
+  }
+
+
+
+/* animation들 */
+@keyframes riseup {
+    from{
+        top:60px;
+        opacity:0.0;
+    }
+    top{
+        top:40px;
+        opacity:1;
+    }
+}
+@keyframes pulldown {
+    0%{
+        padding:0px;
+        height:0px;
+        opacity:0.0;
+    }
+    100%{
+        padding:20px 0px;
+        height:109px;
+        opacity:1.0;
+    }
+}
