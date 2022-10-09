@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 import FixedBanner from "../components/FixedBanner/FixedBanner";
 import Header from '../components/Header/Header';
-import Section from "../components/Section/Section";
+import SectionCUStory from "../components/SectionCUStory/SectionCUStory";
+import SectionCUEvent from "../components/SectionCUEvent/SectionCUEvent";
 
 const Wrapper = styled.div`
   // ★레이아웃 설정★
@@ -21,7 +22,8 @@ function Main(props) {
         {/* FixedBanner 활성화·비활성화 가능 */}
       <FixedBanner/>
       <Header />
-      {/* <Section/> */}
+      <SectionCUStory/>
+      <SectionCUEvent/>
     </Wrapper>
   );
 }

@@ -9,8 +9,8 @@ const Wrapper = styled.div`
   display:flex;
   flex-direction: column;
   // ★박스 크기 및 여백 설정★
-  width:100vw;
-  height:100vh;
+  width:100%;
+  height:100%;
   // ★내부 설정★
   // ★행동 설정★
 `;

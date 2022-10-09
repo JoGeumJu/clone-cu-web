@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   background: #634094;
   text-align: center;
   // ★행동 설정★
-  @media only screen and (max-width:860px) {
+  @media only screen and (max-width:767px) {
     display:none;
   }
 `;

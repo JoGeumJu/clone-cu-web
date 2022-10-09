@@ -13,11 +13,12 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  vertical-align: center;
   // ★행동 설정★
   @media only screen and (max-width: 1370px) {
     padding: 0 20px;
   }
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -32,7 +33,7 @@ const HeaderLogo = styled.h1`
   // ★박스 크기 및 여백 설정★
   // ★내부 설정★
   // ★행동 설정★
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     padding: 0 20px;
   }
 `;
@@ -41,7 +42,7 @@ const ALogo = styled.a`
   // ★박스 크기 및 여백 설정★
   // ★내부 설정★
   // ★행동 설정★
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     padding: 20px 0px;
   }
 `;
@@ -50,7 +51,7 @@ const ImgHeaderLogo = styled.img`
   // ★박스 크기 및 여백 설정★
   // ★내부 설정★
   // ★행동 설정★
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     width: 95px;
   }
 `;
@@ -64,7 +65,7 @@ const NavHeaderMenu = styled.nav`
   list-style-type: none;
   // ★행동 설정★
 
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     margin: 0px;
   }
 `;
@@ -78,7 +79,7 @@ const Ul = styled.ul`
   align-items: center;
   list-style-type: none;
   // ★행동 설정★
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     justify-content: flex-start;
   }
 `;
@@ -93,19 +94,19 @@ const Li = styled.li`
   align-items: center;
   text-align: center;
   // ★행동 설정★
-  &:hover{
-    color:#37d243;
+  &:hover {
+    color: #37d243;
   }
   @media only screen and (max-width: 1370px) {
-    &:hover{
-      color:#000;
+    &:hover {
+      color: #000;
     }
     width: auto;
   }
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     justify-content: left;
-    &:hover{
-      color:#000;
+    &:hover {
+      color: #000;
     }
   }
 `;
@@ -120,16 +121,16 @@ const LiDisappear = styled.li`
   align-items: center;
   text-align: center;
   // ★행동 설정★
-  &:hover{
-    color:#37d243;
+  &:hover {
+    color: #37d243;
   }
   @media only screen and (max-width: 1370px) {
-    &:hover{
-      color:#000;
+    &:hover {
+      color: #000;
     }
     width: auto;
   }
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 870px) {
     display: none;
   }
 `;
@@ -151,8 +152,8 @@ const A = styled.a`
     padding: 38px 12px 38px;
     font-size: 18px;
     @media only screen and (max-width: 1370px) {
-      &:hover{
-        color:#000;
+      &:hover {
+        color: #000;
       }
       width: auto;
     }
@@ -161,7 +162,11 @@ const A = styled.a`
     padding: 38px 12px 38px;
     font-size: 17px;
   }
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 870px) {
+    padding: 38px 12px 38px;
+    font-size: 16px;
+  }
+  @media only screen and (max-width: 767px) {
     padding: 14px 10px;
     font-size: 16px;
     letter-spacing: -0.64px;
@@ -224,7 +229,7 @@ const HeaderLangMenu = styled.div`
   @media only screen and (max-width: 1024px) {
     margin: 0px;
   }
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     display: none;
   }
 `;
@@ -253,6 +258,7 @@ const DivLang = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  cursor: pointer;
   // ★행동 설정★
 `;
 const ImgLang = styled.img`
@@ -287,7 +293,7 @@ const SubUlLang = styled.ul`
   list-style-type: none;
   border-radius: 16px;
   // ★행동 설정★
-  animation: pulldown 0.3s ease 0s normal 1 none;
+  animation: pulldown 0.4s ease 0s normal 1 none;
 `;
 const SubLiLang = styled.li`
   // ★레이아웃 설정★
@@ -299,16 +305,16 @@ const SubALang = styled.a`
   // ★레이아웃 설정★
   // ★박스 크기 및 여백 설정★
   // ★내부 설정★
-  color:#999;
-  font-size:16px;
-  font-weight:900;
-  text-align:center;
-  line-height:1.375;
-  letter-spacing:-0.64px;
-  cursor:pointer;
+  color: #999;
+  font-size: 16px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.375;
+  letter-spacing: -0.64px;
+  cursor: pointer;
   // ★행동 설정★
-  &:hover{
-    color:#fff;
+  &:hover {
+    color: #fff;
   }
 `;
 const HeaderToggleMenu = styled.div`
@@ -316,7 +322,7 @@ const HeaderToggleMenu = styled.div`
   // ★박스 크기 및 여백 설정★
   // ★내부 설정★
   // ★행동 설정★
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -327,6 +333,7 @@ const BtnToggleMenu = styled.button`
   // ★박스 크기 및 여백 설정★
   // ★내부 설정★
   background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
   // ★행동 설정★
 `;
 const ImgToggleMenu = styled.img`
@@ -337,7 +344,7 @@ const ImgToggleMenu = styled.img`
   justify-content: center;
   align-items: center;
   // ★행동 설정★
-  @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 767px) {
     width: 20px;
     height: auto;
   }
@@ -345,7 +352,7 @@ const ImgToggleMenu = styled.img`
 
 function HeaderInner(props) {
   const [visible, setVisible] = useState("none");
-  const onClickLangMenu = (e) => {
+  const onClickLangMenu = () => {
     console.log(visible);
     if (visible === "none") {
       setVisible("flex");
@@ -360,7 +367,7 @@ function HeaderInner(props) {
         <ALogo href="">
           <ImgHeaderLogo
             src={process.env.PUBLIC_URL + "/images/common/logo.png"}
-            alt="CU로고"
+            alt="cu_logo"
           ></ImgHeaderLogo>
         </ALogo>
       </HeaderLogo>
@@ -410,7 +417,9 @@ function HeaderInner(props) {
                 <SubA>멤버십 소개</SubA>
               </SubLi>
               <SubLi>
-                <SubA>포켓 CU</SubA>
+                <SubA href="https://pocketcu.co.kr" target="_blank">
+                  포켓 CU
+                </SubA>
               </SubLi>
             </SubUl>
           </Li>
@@ -450,7 +459,12 @@ function HeaderInner(props) {
                 <SubA>입점 상담 신청</SubA>
               </SubLi>
               <SubLi>
-                <SubA>동반 성장</SubA>
+                <SubA
+                  href="https://www.bgf.co.kr/esg/winwin/vision/"
+                  target="_blank"
+                >
+                  동반 성장
+                </SubA>
               </SubLi>
             </SubUl>
           </LiDisappear>
@@ -474,12 +488,12 @@ function HeaderInner(props) {
             src={
               process.env.PUBLIC_URL + "/images/common/btn_lang_menu_ico.png"
             }
-            alt="언어메뉴버튼"
+            alt="btn_lang_menu"
           />
         </BtnLangMenu>
-        <SubUlLang style={{ display: `${visible}`}}>
+        <SubUlLang style={{ display: `${visible}` }}>
           <SubLiLang>
-            <SubALang style={{color:'#fff'}}>KR</SubALang>
+            <SubALang style={{ color: "#fff" }}>KR</SubALang>
           </SubLiLang>
           <SubLiLang>
             <SubALang>EN</SubALang>
@@ -493,7 +507,7 @@ function HeaderInner(props) {
         <BtnToggleMenu>
           <ImgToggleMenu
             src={process.env.PUBLIC_URL + "/images/common/btn_menu_ico.png"}
-            alt="토글메뉴버튼"
+            alt="btn_toggle_menu"
           />
         </BtnToggleMenu>
       </HeaderToggleMenu>

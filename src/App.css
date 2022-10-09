@@ -16,15 +16,15 @@
   font-size: inherit;
   color: inherit;
   line-height: inherit;
-  transition: 0.2s ease;
+  transition: 0.4s ease;
 }
 
 body {
   font-family: "Noto Sans R";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-.test{
-  transition: none;
+test{
 }
