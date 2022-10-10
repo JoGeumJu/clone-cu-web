@@ -16,7 +16,7 @@
   font-size: inherit;
   color: inherit;
   line-height: inherit;
-  transition: 0.4s ease;
+  transition: 0.3s ease;
 }
 
 body {
@@ -27,4 +27,6 @@ body {
 }
 
 test{
+  transition:none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 }

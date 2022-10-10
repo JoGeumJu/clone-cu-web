@@ -1,0 +1,27 @@
+.swiper_container_hot_issue{
+  
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width:100%;
+  max-width: 1220px;
+  height:100%;
+
+}
+
+.swiper_container_hot_issue .swiper-wrapper {
+  display: flex;
+  width:100%;
+  height:100%;
+  max-width: 1210px;
+  margin:0 auto;
+}
+.swiper_slide_hot_issue {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height:100%;
+  width: 224px;
+  height:340px;
+  border-radius: 22px;
+}

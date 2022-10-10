@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
+import { FiChevronRight } from "react-icons/fi";
 import "./AHover.css";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   height: auto;
   margin: 0 auto 0;
@@ -69,6 +71,7 @@ const ImgHelloFriends = styled.img`
   // ★박스 크기 및 여백 설정★
   max-width: 100%;
   // ★내부 설정★
+  color: white;
   // ★행동 설정★
   @media only screen and (max-width: 767px) {
     max-width: 148px;
@@ -141,17 +144,35 @@ const ACUStory = styled.a`
     }
   }
 `;
-const BtnCUStory = styled.img`
+const BtnBgCUStory = styled.div`
   // ★레이아웃 설정★
+  display: flex;
   // ★박스 크기 및 여백 설정★
   margin: 1px 0 0 6.7px;
-  // ★내부 설정★
   width: 20px;
+  height: 20px;
+  // ★내부 설정★
+  background-color: #37d243;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   // ★행동 설정★
+  ${ACUStory}:hover &{
+    background-color:#6837f8;
+  }
   @media only screen and (max-width: 767px) {
     width: 16px;
+    height: 16px;
     margin: 1px 0 0 8.7px;
   }
+`;
+const BtnArrowCUStory = styled(FiChevronRight)`
+  // ★레이아웃 설정★
+  // ★박스 크기 및 여백 설정★
+  padding:0.7px;
+  // ★내부 설정★
+  color: white;
+  // ★행동 설정★
 `;
 const DivCharacters = styled.div`
   // ★레이아웃 설정★
@@ -177,9 +198,7 @@ const ImgCharacters = styled.img`
   }
 `;
 
-function Section(props) {
-  const [hoverCUStory, setHoverCUStory] = useState(false);
-
+function SectionCUStory(props) {
   return (
     <Wrapper>
       <DivCenter>
@@ -201,21 +220,11 @@ function Section(props) {
             </PictureHelloFriends>
           </DivHelloFriends>
           <DivCUStory>
-            <ACUStory
-              className="a_cu_story"
-              alt="btn_cu_story"
-              onMouseOver={() => setHoverCUStory(true)}
-              onMouseOut={() => setHoverCUStory(false)}
-            >
+            <ACUStory className="a_cu_story" alt="btn_cu_story">
               CU 스토리 보기
-              <BtnCUStory
-                className="btn_cu_story"
-                src={
-                  hoverCUStory
-                    ? "/images/main/btn_cu_story_after.png"
-                    : "/images/main/btn_cu_story_before.png"
-                }
-              />
+              <BtnBgCUStory>
+                <BtnArrowCUStory className="btn_cu_story" src="" />
+              </BtnBgCUStory>
             </ACUStory>
           </DivCUStory>
         </DivHelloFriendsAndCUStory>
@@ -223,15 +232,11 @@ function Section(props) {
           <PictureCharacters>
             <source
               media="(max-width:767px)"
-              srcSet={
-                "/images/main/main_visual_illu_mo.png"
-              }
+              srcSet={"/images/main/main_visual_illu_mo.png"}
             />
             <source
               media="(min-width:768px)"
-              srcSet={
-                "/images/main/main_visual_illu.png"
-              }
+              srcSet={"/images/main/main_visual_illu.png"}
             />
             <ImgCharacters
               src={"/images/main/main_visual_illu.png"}
@@ -244,4 +249,4 @@ function Section(props) {
   );
 }
 
-export default Section;
+export default SectionCUStory;

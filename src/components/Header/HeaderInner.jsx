@@ -366,7 +366,7 @@ function HeaderInner(props) {
       <HeaderLogo>
         <ALogo href="">
           <ImgHeaderLogo
-            src={process.env.PUBLIC_URL + "/images/common/logo.png"}
+            src={"/images/common/logo.png"}
             alt="cu_logo"
           ></ImgHeaderLogo>
         </ALogo>
@@ -485,9 +485,7 @@ function HeaderInner(props) {
         <BtnLangMenu onClick={onClickLangMenu}>
           <DivLang>KR</DivLang>
           <ImgLang
-            src={
-              process.env.PUBLIC_URL + "/images/common/btn_lang_menu_ico.png"
-            }
+            src={"/images/common/btn_lang_menu_ico.png"}
             alt="btn_lang_menu"
           />
         </BtnLangMenu>
@@ -506,7 +504,7 @@ function HeaderInner(props) {
       <HeaderToggleMenu>
         <BtnToggleMenu>
           <ImgToggleMenu
-            src={process.env.PUBLIC_URL + "/images/common/btn_menu_ico.png"}
+            src={"/images/common/btn_menu_ico.png"}
             alt="btn_toggle_menu"
           />
         </BtnToggleMenu>
