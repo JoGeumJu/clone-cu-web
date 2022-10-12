@@ -117,7 +117,7 @@ const ACUStory = styled.a`
       width: 98px;
       transform: scaleX(0);
       transform-origin: left bottom;
-      animation: toleft 0.3s ease 0s normal 1 none;
+      animation: toleft 0.4s ease 0s normal 1 none;
     }
   }
   @media only screen and (min-width: 1371px) {
@@ -131,7 +131,7 @@ const ACUStory = styled.a`
       width: 98px;
       transform: scaleX(1);
       transform-origin: left bottom;
-      animation: toright 0.3s ease 0s normal 1 none;
+      animation: toright 0.4s ease 0s normal 1 none;
     }
   }
   @media only screen and (max-width: 767px) {

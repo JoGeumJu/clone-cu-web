@@ -281,7 +281,7 @@ function SectionCUEvent(props) {
   return (
     <Wrapper>
       <DivCUEvents>
-        <SwiperContainer >
+        <SwiperContainer>
           <Swiper className="swiper_container_cu_event" {...settings_cu_event}>
             {swiperEvents.map((idx) => (
               <SwiperSlide className="swiper_slide_cu_event" key={idx.index}>

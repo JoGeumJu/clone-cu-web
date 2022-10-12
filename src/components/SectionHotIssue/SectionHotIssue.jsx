@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { HiChevronRight } from "react-icons/hi";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Swiper.css";
+import "./AHover.css";
 
 const Wrapper = styled.section`
   // ★레이아웃 설정★
@@ -42,6 +43,16 @@ const TitleHotIssue = styled.div`
   margin-bottom: 48px;
   // ★내부 설정★
   // ★행동 설정★
+  @media only screen and (max-width: 1370px) {
+    width: 100%;
+    max-width: 1370px;
+  }
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    max-width: none;
+    height: 29px;
+    margin-bottom: 15px;
+  }
 `;
 const HTitle = styled.h2`
   // ★레이아웃 설정★
@@ -60,7 +71,16 @@ const HTitle = styled.h2`
   line-height: 1;
   text-align: center;
   letter-spacing: -0.96px;
+  cursor: default;
   // ★행동 설정★
+  @media only screen and (max-width: 767px) {
+    top: 0;
+    left: 20px;
+    transform: translateX(0%);
+    line-height: 1.2;
+    font-size: 20px;
+    letter-spacing: -0.4px;
+  }
 `;
 const AViewMore = styled.a`
   // ★레이아웃 설정★
@@ -82,10 +102,46 @@ const AViewMore = styled.a`
   letter-spacing: -0.72px;
   cursor: pointer;
   // ★행동 설정★
-  &:hover {
+  @media only screen and (min-width: 1371px) {
+    &:after {
+      display: flex;
+      position: absolute;
+      border-bottom: 1px solid #999;
+      content: "";
+      left: 0;
+      bottom: -1px;
+      width: 150px;
+      transform: scaleX(0);
+      transform-origin: left bottom;
+      animation: toleft 0.4s ease 0s normal 1 none;
+    }
+  }
+  @media only screen and (min-width: 1371px) {
+    &:hover:after {
+      display: flex;
+      position: absolute;
+      border-bottom: 1px solid #999;
+      content: "";
+      left: 0;
+      bottom: -1px;
+      width: 150px;
+      transform: scaleX(1);
+      transform-origin: left bottom;
+      animation: toright 0.4s ease 0s normal 1 none;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    right: 14px;
+    padding-right: 0;
+    font-size: 13px;
+    letter-spacing: -0.52px;
   }
 `;
-const DisappearViewMore = styled.div``;
+const DisappearViewMore = styled.div`
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
+`;
 const ImgViewMore = styled(HiChevronRight)`
   // ★레이아웃 설정★
   // ★박스 크기 및 여백 설정★
@@ -96,42 +152,165 @@ const ImgViewMore = styled(HiChevronRight)`
   height: 25px;
   color: #999;
   // ★행동 설정★
+  @media only screen and (min-width: 1371px) {
+    ${AViewMore}:hover & {
+      animation: swipe 1s ease 0s normal infinite none;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    width: 21px;
+    height: 21px;
+    margin-right: 0px;
+  }
 `;
 const DivHotIssues = styled.div`
   display: flex;
+  flex-direction: column;
+  position: relative;
   width: 100%;
+  height: 100%;
   max-width: 1280px;
   align-items: center;
   padding: 0;
   margin: 0 auto;
+  overflow: visible;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @media only screen and (max-width: 1370px) {
+    width: 100%;
+    max-width: 1370px;
+  }
+  @media only screen and (max-width: 767px) {
+    padding: 0 12px;
+  }
 `;
 const SwiperContainer = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 100%;
   max-width: 1220px;
   height: 100%;
   margin: 0 auto;
   overflow: visible;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @media only screen and (max-width: 1370px) {
+    width: 100%;
+    max-width: 1370px;
+  }
 `;
 const BtnSwiperPrev = styled.button`
-  display: none;
+  // ★레이아웃 설정★
+  display: flex;
+  position: absolute;
+  z-index: 120;
+  // ★박스 크기 및 여백 설정★
+  width: 24px;
+  height: 24px;
+  // ★내부 설정★
+  top: 50%;
+  left: 0%;
+  transform: translate(0, -50%);
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  // ★행동 설정★
+  @media only screen and (max-width: 1370px) {
+    left: 20px;
+  }
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
 `;
-const ImgSwiperPrev = styled.img``;
+const ImgSwiperPrev = styled.img`
+  // ★레이아웃 설정★
+  // ★박스 크기 및 여백 설정★
+  width: 24px;
+  height: 24px;
+  // ★내부 설정★
+  // ★행동 설정★
+`;
 const BtnSwiperNext = styled.button`
-  display: none;
+  // ★레이아웃 설정★
+  display: flex;
+  position: absolute;
+  z-index: 120;
+  // ★박스 크기 및 여백 설정★
+  width: 24px;
+  height: 24px;
+  // ★내부 설정★
+  top: 50%;
+  right: 0%;
+  transform: translate(0, -50%);
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  // ★행동 설정★
+  @media only screen and (max-width: 1370px) {
+    right: 20px;
+  }
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
 `;
-const ImgSwiperNext = styled.img``;
-const DivPagination = styled.div``;
+const ImgSwiperNext = styled.img`
+  // ★레이아웃 설정★
+  // ★박스 크기 및 여백 설정★
+  width: 24px;
+  height: 24px;
+  // ★내부 설정★
+  // ★행동 설정★
+`;
+const DivPagination = styled.div`
+  // ★레이아웃 설정★
+  // ★박스 크기 및 여백 설정★
+  margin: 0 auto;
+  padding: 30px 0 0 0;
+  max-width: 1320px;
+  // ★내부 설정★
+  // ★행동 설정★
+  @media only screen and (max-width: 767px) {
+    padding: 2px 0 0 0;
+  }
+`;
 // swiper-slides
-const ASwiperHotIssue = styled.a`
+const BgSwiperHotIssue = styled.div`
   display: flex;
   position: relative;
+  width: 224px;
+  height: 340px;
+  border-radius: 22px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @media only screen and (min-width: 1371px) {
+    &:hover {
+      background: linear-gradient(45deg, #50e2c4, #895eee);
+      padding: 7px;
+    }
+  }
+  @media only screen and (max-width: 1370px) {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    border-radius: 12px;
+  }
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    height: 100%;
+  }
+`;
+const ASwiperHotIssue = styled.a`
+  // ★레이아웃 설정★
+  display: flex;
   flex-direction: column;
+  position: relative;
+  // ★박스 크기 및 여백 설정★
   width: 100%;
-  max-width: 224px;
   height: 100%;
-  margin: 0 auto;
+  padding: 22px 8px 0;
+  // ★내부 설정★
   background-color: #fff;
   border: 1px solid #dddddd;
   overflow: hidden;
@@ -140,28 +319,33 @@ const ASwiperHotIssue = styled.a`
   align-items: center;
   text-align: center;
   text-decoration: none;
+  // ★행동 설정★
+  @media only screen and (min-width: 1371px) {
+    ${BgSwiperHotIssue}:hover & {
+      padding: 14px 1px 0;
+    }
+  }
+  @media only screen and (max-width: 1370px) {
+    padding: 16px 10px 0px;
+    border-radius: 12px;
+  }
+  @media only screen and (max-width: 767px) {
+    padding: 16px 10px 0px;
+  }
 `;
 const DivGoodsWrap = styled.div`
   display: flex;
-  position: relative;
-  left: 0;
+  flex-direction: column;
+  position: position;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   align-items: center;
-  padding: 22px 8px 0;
   cursor: pointer;
-`;
-const AGoodsWrap = styled.a`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  padding:22px 8px 0;
 `;
 const ImgSwiperHotIssue = styled.img`
   width: 100%;
@@ -173,49 +357,112 @@ const ImgSwiperHotIssue = styled.img`
   max-width: 200px;
   object-position: center;
   vertical-align: top;
+  @media only screen and (min-width: 1371px) {
+    ${BgSwiperHotIssue}:hover & {
+      transform: scale(1.1);
+    }
+  }
+  @media only screen and (max-width: 1370px) {
+    width: 141px;
+  }
+  @media only screen and (max-width: 767px) {
+    max-width: 141px;
+  }
 `;
 const DivTextGoods = styled.div`
+  width: 100%;
   padding: 0 9px;
   margin-top: 13px;
+  justify-content: center;
+  @media only screen and (max-width: 1370px) {
+    margin-top: 10px;
+  }
 `;
 const DivGoodsName = styled.div`
-  display:flex;
+  display: flex;
   width: 100%;
   height: 41px;
   font-size: 18px;
   font-weight: normal;
   line-height: 1.11;
   letter-spacing: -0.72px;
-  color: #000;
-  vertical-align:center;
+  color: #222;
+  vertical-align: center;
   text-align: center;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 1370px) {
+    align-items: flex-start;
+    width: 100%;
+    max-height: 37px;
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+  }
 `;
 const DivGoodsPrice = styled.div`
   display: flex;
-  position:relative;
+  position: relative;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  text-align: center;
   height: 29px;
+  @media only screen and (max-width: 1370px) {
+    margin-top: 4px;
+    height: 22px;
+  }
+  @media only screen and (max-width: 767px) {
+  }
 `;
 const Strong = styled.p`
   font-size: 24px;
   font-weight: bold;
   letter-spacing: -0.48px;
-  color: #222;
+  color: #000;
+  @media only screen and (max-width: 1370px) {
+    font-size: 18px;
+    letter-spacing: -0.36px;
+  }
+  @media only screen and (max-width: 767px) {
+  }
 `;
 const PWon = styled.p`
-display:flex;
+  display: flex;
   font-size: 20px;
+  color: #222;
   font-style: normal;
   padding-left: 2px;
+  @media only screen and (max-width: 1370px) {
+    height: 18px;
+    font-size: 14px;
+  }
+  @media only screen and (max-width: 767px) {
+  }
 `;
 const DivNewTagWrap = styled.div`
   position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(140%, -220%);
+  @media only screen and (max-width: 1370px) {
+    width: 31px;
+    height: 31px;
+    top: 12px;
+    right: 10px;
+    transform: translate(0, 0);
+  }
+  @media only screen and (max-width: 767px) {
+  }
 `;
-const ImgNewTag = styled.img``;
+const ImgNewTag = styled.img`
+  @media only screen and (max-width: 1370px) {
+    width: 100%;
+    height: 100%;
+  }
+  @media only screen and (max-width: 767px) {
+  }
+`;
 
 function SectionHotIssue(props) {
   const [swiperHotIssues, setSwiperHotIssues] = useState([
@@ -226,22 +473,25 @@ function SectionHotIssue(props) {
       alt: "듀록목살찹스테이크",
       name: "도)듀록목살찹스테이크",
       price: "6,900",
+      tag: "new",
     },
     {
       index: 1,
       href: "",
-      src: `${"/images/product/8809533200343.jpg"}`,
+      src: `${"/images/product/8801117695002.jpg"}`,
       alt: "꼬북칩초코160g",
       name: "오리온)꼬북칩초코160g",
       price: "3,400",
+      tag: "new",
     },
     {
       index: 2,
       href: "",
-      src: `${"/images/product/8801117695002.jpg"}`,
+      src: `${"/images/product/8809533200343.jpg"}`,
       alt: "훈제오리쌈세트",
       name: "이금기)훈제오리쌈세트",
       price: "11,900",
+      tag: "new",
     },
     {
       index: 3,
@@ -250,6 +500,7 @@ function SectionHotIssue(props) {
       alt: "깨부수면컵",
       name: "정육면체)깨부수면컵",
       price: "4,500",
+      tag: "new",
     },
     {
       index: 4,
@@ -258,6 +509,7 @@ function SectionHotIssue(props) {
       alt: "짱구는카레대왕",
       name: "짱구)짱구는카레대왕",
       price: "4,900",
+      tag: "new",
     },
     {
       index: 5,
@@ -266,6 +518,7 @@ function SectionHotIssue(props) {
       alt: "이금기삼겹구이정식",
       name: "도)이금기삼겹구이정식",
       price: "5,500",
+      tag: "new",
     },
     {
       index: 6,
@@ -274,6 +527,7 @@ function SectionHotIssue(props) {
       alt: "불고기된장한상차림",
       name: "도)불고기된장한상차림",
       price: "4,900",
+      tag: "none",
     },
     {
       index: 7,
@@ -282,6 +536,7 @@ function SectionHotIssue(props) {
       alt: "야키토리묵닭곰탕",
       name: "푸드)야키토리묵닭곰탕",
       price: "5,900",
+      tag: "none",
     },
     {
       index: 8,
@@ -290,6 +545,7 @@ function SectionHotIssue(props) {
       alt: "케로로쿠루치즈케익",
       name: "롯데)케로로쿠루치즈케익",
       price: "1,500",
+      tag: "new",
     },
     {
       index: 9,
@@ -298,19 +554,20 @@ function SectionHotIssue(props) {
       alt: "뿌셔뿌셔달고나맛",
       name: "오뚜기)뿌셔뿌셔달고나맛",
       price: "1,200",
+      tag: "new",
     },
   ]);
 
   SwiperCore.use([Navigation, Pagination, Autoplay]);
   const settings_hot_issue = {
-    spaceBetween: 10,
-    slidesPerView: 5,
-    slidesPerGroup: 5,
+    spaceBetween: 0,
+    slidesPerView: 2,
+    slidesPerGroup: 1,
     loop: true,
-    loopedSlides: 5,
+    loopedSlides: 10,
     autoplay: {
       delay: 3000,
-      disableOnInteraction: true,
+      disableOnInteraction: false,
     },
     scrollbar: { draggable: true, el: null },
     navigation: {
@@ -336,13 +593,43 @@ function SectionHotIssue(props) {
         <SwiperContainer>
           <Swiper
             className="swiper_container_hot_issue"
+            breakpoints={{
+              768: {
+                spaceBetween: 0,
+                slidesPerView: 4,
+                slidesPerGroup: 2,
+                scrollbar: { draggable: true, el: null },
+                navigation: {
+                  nextEl: ".swiper_button_next_hot_issue",
+                  prevEl: ".swiper_button_prev_hot_issue",
+                },
+                pagination: {
+                  el: ".swiper_pagination_hot_issue",
+                  clickable: true,
+                },
+              },
+              1371: {
+                spaceBetween: 10,
+                slidesPerView: 5,
+                slidesPerGroup: 5,
+                scrollbar: { draggable: true, el: null },
+                navigation: {
+                  nextEl: ".swiper_button_next_hot_issue",
+                  prevEl: ".swiper_button_prev_hot_issue",
+                },
+                pagination: {
+                  el: ".swiper_pagination_hot_issue",
+                  clickable: true,
+                },
+              },
+            }}
             {...settings_hot_issue}
           >
             {swiperHotIssues.map((idx) => (
               <SwiperSlide className="swiper_slide_hot_issue" key={idx.index}>
-                <ASwiperHotIssue href={idx.href}>
-                  <DivGoodsWrap>
-                    <AGoodsWrap>
+                <BgSwiperHotIssue>
+                  <ASwiperHotIssue href={idx.href}>
+                    <DivGoodsWrap>
                       <ImgSwiperHotIssue src={idx.src} alt={idx.alt} />
                       <DivTextGoods>
                         <DivGoodsName>{idx.name}</DivGoodsName>
@@ -351,32 +638,36 @@ function SectionHotIssue(props) {
                           <PWon>원</PWon>
                         </DivGoodsPrice>
                       </DivTextGoods>
-                    </AGoodsWrap>
-                  </DivGoodsWrap>
-                  <DivNewTagWrap>
-                    <ImgNewTag src="/images/icon/tag_new.png" />
-                  </DivNewTagWrap>
-                </ASwiperHotIssue>
+                    </DivGoodsWrap>
+                    <DivNewTagWrap>
+                      {idx.tag === "new" ? (
+                        <ImgNewTag src="/images/icon/tag_new.png" />
+                      ) : (
+                        <></>
+                      )}
+                    </DivNewTagWrap>
+                  </ASwiperHotIssue>
+                </BgSwiperHotIssue>
               </SwiperSlide>
             ))}
           </Swiper>
-          <BtnSwiperPrev className="swiper_button_prev_hot_issue">
-            <ImgSwiperPrev
-              src="/images/main/btn_cu_event_prev.png"
-              alt="btn_cu_event_prev"
-            />
-          </BtnSwiperPrev>
-          <BtnSwiperNext className="swiper_button_next_hot_issue">
-            <ImgSwiperNext
-              src="/images/main/btn_cu_event_next.png"
-              alt="btn_cu_event_prev"
-            />
-          </BtnSwiperNext>
-          <DivPagination>
-            <div className="swiper_pagination_hot_issue"></div>
-          </DivPagination>
         </SwiperContainer>
+        <BtnSwiperPrev className="swiper_button_prev_hot_issue">
+          <ImgSwiperPrev
+            src="/images/main/btn_cu_event_prev.png"
+            alt="btn_cu_event_prev"
+          />
+        </BtnSwiperPrev>
+        <BtnSwiperNext className="swiper_button_next_hot_issue">
+          <ImgSwiperNext
+            src="/images/main/btn_cu_event_next.png"
+            alt="btn_cu_event_prev"
+          />
+        </BtnSwiperNext>
       </DivHotIssues>
+      <DivPagination>
+        <div className="swiper_pagination_hot_issue"></div>
+      </DivPagination>
     </Wrapper>
   );
 }

@@ -1,31 +1,36 @@
-.swiper_container_hot_issue {
+.swiper_container_plus_goods {
   display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
-  max-width: 1220px;
   height: 100%;
 }
 @media only screen and (max-width: 1370px) {
-  .swiper_container_hot_issue {
+  .swiper_container_plus_goods {
     width: 100%;
     max-width: none;
   }
 }
-.swiper_container_hot_issue .swiper-wrapper {
+.swiper_container_plus_goods .swiper-wrapper {
   display: flex;
   width: 100%;
   height: 100%;
-  max-width: 1210px;
-  margin: 0 auto;
 }
 @media only screen and (max-width: 1370px) {
-  .swiper_container_hot_issue .swiper-wrapper {
+  .swiper_container_plus_goods .swiper-wrapper {
     width: 100%;
     max-width: none;
   }
 }
-.swiper_slide_hot_issue {
+@media only screen and (max-width: 767px) {
+  .swiper_container_plus_goods .swiper-wrapper {
+    flex-direction: column;
+    flex-wrap: wrap;
+    height:514px;
+    width:100%;
+  }
+}
+.swiper_slide_plus_goods {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -37,14 +42,21 @@
   text-align: center;
 }
 @media only screen and (max-width: 1370px) {
-  .swiper_slide_hot_issue {
+  .swiper_slide_plus_goods {
     width: 25%;
     max-height: 244px;
     padding: 0 7px;
     margin: 0;
   }
 }
-.swiper_pagination_hot_issue .swiper-pagination-bullet {
+@media only screen and (max-width: 767px) {
+  .swiper_slide_plus_goods {
+    width: 50% !important;;
+    max-width:50%;
+    margin:6px 0;
+  }
+}
+.swiper_pagination_plus_goods .swiper-pagination-bullet {
   margin: 0 4px;
   padding: 0;
   width: 12px;
@@ -54,7 +66,7 @@
   opacity: 0.2;
 }
 @media only screen and (max-width: 767px) {
-  .swiper_pagination_hot_issue .swiper-pagination-bullet {
+  .swiper_pagination_plus_goods .swiper-pagination-bullet {
     margin: 0 3px;
     padding: 0;
     width: 6px;
@@ -65,7 +77,7 @@
     margin: 0 3px;
   }
 }
-.swiper_pagination_hot_issue .swiper-pagination-bullet-active {
+.swiper_pagination_plus_goods .swiper-pagination-bullet-active {
   background-color: #37d243;
   opacity: 1;
 }

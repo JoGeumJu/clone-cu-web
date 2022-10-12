@@ -7,12 +7,12 @@
   src: url("./assets/fonts/NotoSansKR-Medium.otf");
 }
 
-*{
+* {
   -webkit-text-size-adjust: none;
   box-sizing: border-box;
-  margin:0;
-  padding:0;
-  border:0;
+  margin: 0;
+  padding: 0;
+  border: 0;
   font-size: inherit;
   color: inherit;
   line-height: inherit;
@@ -26,7 +26,6 @@ body {
   overflow-x: hidden;
 }
 
-test{
-  transition:none;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+test {
+ justify-content: space-around;
 }

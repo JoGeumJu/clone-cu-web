@@ -6,6 +6,8 @@ import Header from "../components/Header/Header";
 import SectionCUStory from "../components/SectionCUStory/SectionCUStory";
 import SectionCUEvent from "../components/SectionCUEvent/SectionCUEvent";
 import SectionHotIssue from "../components/SectionHotIssue/SectionHotIssue";
+import SectionCUApp from "../components/SectionCUApp/SectionCUApp";
+import SectionPlusGoods from "../components/SectionPlusGoods/SectionPlusGoods";
 
 const Wrapper = styled.div`
   // ★레이아웃 설정★
@@ -26,6 +28,8 @@ function Main(props) {
       <SectionCUStory />
       <SectionCUEvent />
       <SectionHotIssue />
+      <SectionCUApp />
+      <SectionPlusGoods />
     </Wrapper>
   );
 }
