@@ -99,35 +99,39 @@ const ImgPocketCU = styled.img`
 const DivLink = styled.a`
   // ★레이아웃 설정★
   display: flex;
-  position:absolute;
+  position: absolute;
   flex-direction: row;
   // ★박스 크기 및 여백 설정★
   width: 200px;
   height: 60px;
   // ★내부 설정★
-  top:70px;
-  right:45px;
+  top: 70px;
+  right: 45px;
   justify-content: center;
   align-items: center;
   text-align: center;
   background-color: #6837f8;
-  border-radius:5vh;
-  text-decoration:none;
+  border-radius: 5vh;
+  text-decoration: none;
+  cursor: pointer;
   // ★행동 설정★
+  &:hover {
+    box-shadow: 0px 2px 10px rgb(104, 55, 248, 0.6);
+  }
 `;
 const TitleLink = styled.p`
   // ★레이아웃 설정★
   // ★박스 크기 및 여백 설정★
-  margin-right:30px;
+  margin-right: 30px;
   // ★내부 설정★
   color: #fff;
-  font-size:18px;
-  letter-spacing:-0.72px;
-  line-height:1;
-  font-weight:600;
+  font-size: 18px;
+  letter-spacing: -0.72px;
+  line-height: 1;
+  font-weight: 600;
   // ★행동 설정★
   @media only screen and (max-width: 1370px) {
-    font-size:15px;
+    font-size: 15px;
   }
 `;
 const ImgDownload = styled.img`
@@ -154,7 +158,7 @@ function SectionCUApp(props) {
           src="/images/main/app_go_object_img01_pc.png"
           alt="img_pocket_cu"
         />
-        <DivLink>
+        <DivLink href="https://pocketcu.co.kr" target="_blank">
           <TitleLink>포켓CU 설치</TitleLink>
           <ImgDownload src="/images/main/ico_btn_down.png" alt="img_download" />
         </DivLink>

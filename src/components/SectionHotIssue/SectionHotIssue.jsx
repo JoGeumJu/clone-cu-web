@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { HiChevronRight } from "react-icons/hi";
@@ -665,7 +665,7 @@ function SectionHotIssue(props) {
           />
         </BtnSwiperNext>
       </DivHotIssues>
-      <DivPagination>
+      <DivPagination >
         <div className="swiper_pagination_hot_issue"></div>
       </DivPagination>
     </Wrapper>

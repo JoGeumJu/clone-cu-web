@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./MenuHover.css";
 
@@ -360,6 +360,23 @@ function HeaderInner(props) {
       setVisible("none");
     }
   };
+
+  const [ScrollY, setScrollY] = useState(0);
+  const [ScrollActive, setScrollActive] = useState(false); 
+  function handleScroll() { 
+      if(ScrollY > 36) {
+          setScrollY(window.pageYOffset);
+          setScrollActive(true);
+      } else {
+          setScrollY(window.pageYOffset);
+          setScrollActive(false);
+      }
+  }
+  useEffect(() => {
+      function scrollListener() {  window.addEventListener("scroll", handleScroll); }
+      scrollListener();
+      return () => { window.removeEventListener("scroll", handleScroll); };
+  });
 
   return (
     <Wrapper className="inner_wrap">
