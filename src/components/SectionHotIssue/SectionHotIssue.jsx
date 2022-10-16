@@ -28,6 +28,7 @@ const Wrapper = styled.section`
     margin: 0 auto 160px;
   }
   @media only screen and (max-width: 767px) {
+    order: 4;
     margin: 0 auto 78px;
   }
 `;
@@ -206,7 +207,7 @@ const BtnSwiperPrev = styled.button`
   // ★레이아웃 설정★
   display: flex;
   position: absolute;
-  z-index: 120;
+  z-index: 5;
   // ★박스 크기 및 여백 설정★
   width: 24px;
   height: 24px;
@@ -236,7 +237,7 @@ const BtnSwiperNext = styled.button`
   // ★레이아웃 설정★
   display: flex;
   position: absolute;
-  z-index: 120;
+  z-index: 5;
   // ★박스 크기 및 여백 설정★
   width: 24px;
   height: 24px;
@@ -592,7 +593,11 @@ function SectionHotIssue(props) {
       <DivHotIssues>
         <SwiperContainer>
           <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
             className="swiper_container_hot_issue"
+            slidesPerView={2}
+            spaceBetween={0}
+            pagination={{ clickable: true }}
             breakpoints={{
               768: {
                 spaceBetween: 0,
@@ -623,7 +628,7 @@ function SectionHotIssue(props) {
                 },
               },
             }}
-            {...settings_hot_issue}
+            // {...settings_hot_issue}
           >
             {swiperHotIssues.map((idx) => (
               <SwiperSlide className="swiper_slide_hot_issue" key={idx.index}>
@@ -665,7 +670,7 @@ function SectionHotIssue(props) {
           />
         </BtnSwiperNext>
       </DivHotIssues>
-      <DivPagination >
+      <DivPagination>
         <div className="swiper_pagination_hot_issue"></div>
       </DivPagination>
     </Wrapper>

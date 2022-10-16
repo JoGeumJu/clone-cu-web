@@ -1,28 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import "./App.css";
 
-import Main from "./pages/Main";
-import Footer from "./pages/Footer";
+import FooterPc from "../components/FooterPc/FooterPc";
+import FooterMo from "../components/FooterMo/FooterMo";
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   // ★레이아웃 설정★
   display: flex;
   flex-direction: column;
   // ★박스 크기 및 여백 설정★
   width: 100%;
-  height: 100%;
   // ★내부 설정★
   // ★행동 설정★
 `;
 
-function App() {
+function Footer(props) {
   return (
-    <Wrapper>
-      <Main />
-      <Footer />
+    <Wrapper id="wrap" className="footer">
+      <FooterPc />
+      <FooterMo />
     </Wrapper>
   );
 }
 
-export default App;
+export default Footer;

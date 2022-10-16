@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import FixedBanner from "../components/FixedBanner/FixedBanner";
@@ -8,6 +8,11 @@ import SectionCUEvent from "../components/SectionCUEvent/SectionCUEvent";
 import SectionHotIssue from "../components/SectionHotIssue/SectionHotIssue";
 import SectionCUApp from "../components/SectionCUApp/SectionCUApp";
 import SectionPlusGoods from "../components/SectionPlusGoods/SectionPlusGoods";
+import SectionNowNeed from "../components/SectionNowNeed/SectionNowNeed";
+import SectionInfoBanner from "../components/SectionInfoBanner/SectionInfoBanner";
+import SectionSearchCU from "../components/SectionSearchCU/SectionSearchCU";
+import SectionStory from "../components/SectionStory/SectionStory";
+import SectionCUStore from "../components/SectionCUStore/SectionCUStore";
 
 const Wrapper = styled.div`
   // ★레이아웃 설정★
@@ -24,12 +29,18 @@ function Main(props) {
     <Wrapper id="wrap" className="main">
       {/* FixedBanner 활성화·비활성화 가능 */}
       <FixedBanner />
-      <Header />
+      {/* FixedBanner 유무 시 scroll 옵션 설정 */}
+      <Header style={{ zIndex: "130" }} />
       <SectionCUStory />
-      <SectionCUEvent />
-      <SectionHotIssue />
+      <SectionCUEvent style={{ zIndex: "100" }} />
+      <SectionHotIssue style={{ zIndex: "100" }} />
       <SectionCUApp />
-      <SectionPlusGoods />
+      <SectionPlusGoods style={{ zIndex: "100" }} />
+      <SectionNowNeed />
+      <SectionInfoBanner />
+      <SectionSearchCU />
+      <SectionStory />
+      <SectionCUStore />
     </Wrapper>
   );
 }

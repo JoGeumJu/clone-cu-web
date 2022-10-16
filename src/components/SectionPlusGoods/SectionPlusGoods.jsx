@@ -28,6 +28,7 @@ const Wrapper = styled.section`
     margin: 0 auto 160px;
   }
   @media only screen and (max-width: 767px) {
+    order: 5;
     margin: 0 auto 78px;
   }
 `;
@@ -203,7 +204,7 @@ const SwiperContainer = styled.div`
 const BtnSwiperPrev = styled.button`
   // ★레이아웃 설정★
   display: flex;
-  z-index: 120;
+  z-index: 5;
   // ★박스 크기 및 여백 설정★
   width: 30px;
   height: 17px;
@@ -229,7 +230,7 @@ const ImgSwiperPrev = styled.img`
 const BtnSwiperNext = styled.button`
   // ★레이아웃 설정★
   display: flex;
-  z-index: 120;
+  z-index: 5;
   // ★박스 크기 및 여백 설정★
   width: 30px;
   height: 17px;
@@ -657,7 +658,7 @@ function SectionPlusGoods(props) {
     loopedSlides: 20,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: true,
+      disableOnInteraction: false,
     },
     scrollbar: { draggable: true, el: null },
     navigation: {

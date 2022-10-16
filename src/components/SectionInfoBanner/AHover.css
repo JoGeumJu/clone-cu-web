@@ -1,0 +1,17 @@
+/* animation들 */
+@keyframes toright {
+  from {
+    width: 26px;
+  }
+  to {
+    width: 106px;
+  }
+}
+@keyframes toleft {
+  from {
+    width: 106px;
+  }
+  to {
+    width: 26px;
+  }
+}

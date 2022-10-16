@@ -16,6 +16,7 @@ const Wrapper = styled.section`
     width: 100%;
   }
   @media only screen and (max-width: 767px) {
+    order: 2;
     width: 100%;
     padding: 31px 20px 30px;
     margin: 0 auto;
@@ -157,8 +158,8 @@ const BtnBgCUStory = styled.div`
   align-items: center;
   border-radius: 10px;
   // ★행동 설정★
-  ${ACUStory}:hover &{
-    background-color:#6837f8;
+  ${ACUStory}:hover & {
+    background-color: #6837f8;
   }
   @media only screen and (max-width: 767px) {
     width: 16px;
@@ -169,7 +170,7 @@ const BtnBgCUStory = styled.div`
 const BtnArrowCUStory = styled(FiChevronRight)`
   // ★레이아웃 설정★
   // ★박스 크기 및 여백 설정★
-  padding:0.7px;
+  padding: 0.7px;
   // ★내부 설정★
   color: white;
   // ★행동 설정★

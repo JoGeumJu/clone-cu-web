@@ -17,7 +17,9 @@ const Wrapper = styled.section`
     margin: 0 auto 140px;
   }
   @media only screen and (max-width: 767px) {
-    display: none;
+    order: 7;
+    margin: 0;
+    margin-bottom: 80px;
   }
 `;
 const DivBg = styled.div`
@@ -37,6 +39,12 @@ const DivBg = styled.div`
     width: 100%;
     margin: 0 20px;
   }
+  @media only screen and (max-width: 767px) {
+    margin: 0;
+    padding: 0 20px;
+    border-radius: 0px;
+    justify-content: center;
+  }
 `;
 const DivText = styled.div`
   // ★레이아웃 설정★
@@ -48,8 +56,14 @@ const DivText = styled.div`
   @media only screen and (max-width: 1370px) {
     padding-left: 20px;
   }
+  @media only screen and (max-width: 767px) {
+    width: auto;
+    min-width: 171px;
+    padding-top: 33px;
+    padding-left: 0;
+  }
 `;
-const TitleText = styled.p`
+const TitleText = styled.h2`
   // ★레이아웃 설정★
   // ★박스 크기 및 여백 설정★
   padding: 25px 0 14px;
@@ -71,6 +85,18 @@ const TitleText = styled.p`
   @media only screen and (max-width: 838px) {
     font-size: 22px;
   }
+  @media only screen and (max-width: 767px) {
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.72px;
+    padding: 0;
+  }
+`;
+const Br767 = styled.br`
+  display: none;
+  @media only screen and (max-width: 767px) {
+    display: flex;
+  }
 `;
 const SubTitleText = styled.p`
   // ★레이아웃 설정★
@@ -85,6 +111,9 @@ const SubTitleText = styled.p`
   @media only screen and (max-width: 838px) {
     font-size: 13px;
   }
+  @media only screen and (max-width: 767px) {
+    display: none;
+  }
 `;
 const ImgPocketCU = styled.img`
   // ★레이아웃 설정★
@@ -94,6 +123,10 @@ const ImgPocketCU = styled.img`
   // ★행동 설정★
   @media only screen and (max-width: 1370px) {
     padding-left: 0px;
+  }
+  @media only screen and (max-width: 767px) {
+    padding-top:24px;
+    width: 147px;
   }
 `;
 const DivLink = styled.a`
@@ -115,8 +148,18 @@ const DivLink = styled.a`
   text-decoration: none;
   cursor: pointer;
   // ★행동 설정★
-  &:hover {
-    box-shadow: 0px 2px 10px rgb(104, 55, 248, 0.6);
+  @media only screen and (min-width: 1371px) {
+    &:hover {
+      box-shadow: 0px 2px 10px rgb(104, 55, 248, 0.6);
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    width: 110px;
+    height: 36px;
+    right: 50%;
+    top: auto;
+    bottom: 31px;
+    transform: translate(-50px,0);
   }
 `;
 const TitleLink = styled.p`
@@ -133,6 +176,11 @@ const TitleLink = styled.p`
   @media only screen and (max-width: 1370px) {
     font-size: 15px;
   }
+  @media only screen and (max-width: 767px) {
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    margin-right: 13px;
+  }
 `;
 const ImgDownload = styled.img`
   // ★레이아웃 설정★
@@ -144,6 +192,10 @@ const ImgDownload = styled.img`
   @media only screen and (max-width: 1370px) {
     padding-left: 0px;
   }
+  @media only screen and (max-width: 767px) {
+    width: 9px;
+    height: 11px;
+  }
 `;
 
 function SectionCUApp(props) {
@@ -151,7 +203,10 @@ function SectionCUApp(props) {
     <Wrapper>
       <DivBg>
         <DivText>
-          <TitleText>차별화된 서비스와 풍성한 혜택이 가득!</TitleText>
+          <TitleText>
+            차별화된 서비스와 <Br767 />
+            풍성한 혜택이 가득!
+          </TitleText>
           <SubTitleText>포켓CU APP 사용해보세요 :)</SubTitleText>
         </DivText>
         <ImgPocketCU

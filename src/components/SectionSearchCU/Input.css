@@ -1,0 +1,24 @@
+input[type="text"] {
+  background-color: #fff;
+  font-family: "Noto Sans R";
+}
+
+input {
+  writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: fieldtext;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}

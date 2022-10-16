@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./MenuHover.css";
+// import "./Scroll.css";
 
 const Wrapper = styled.div`
   // ★레이아웃 설정★
   display: flex;
   flex-direction: row;
   // ★박스 크기 및 여백 설정★
-  height: 104px;
   padding: 0 30px;
+  width:100%;
+  height:104px;
   // ★내부 설정★
+  background-color: #fff;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -43,7 +46,7 @@ const ALogo = styled.a`
   // ★내부 설정★
   // ★행동 설정★
   @media only screen and (max-width: 767px) {
-    padding: 20px 0px;
+    padding: 20px 0;
   }
 `;
 const ImgHeaderLogo = styled.img`
@@ -53,6 +56,7 @@ const ImgHeaderLogo = styled.img`
   // ★행동 설정★
   @media only screen and (max-width: 767px) {
     width: 95px;
+    padding-top:5px;
   }
 `;
 const NavHeaderMenu = styled.nav`
@@ -163,13 +167,17 @@ const A = styled.a`
     font-size: 17px;
   }
   @media only screen and (max-width: 870px) {
-    padding: 38px 12px 38px;
     font-size: 16px;
   }
   @media only screen and (max-width: 767px) {
     padding: 14px 10px;
     font-size: 16px;
     letter-spacing: -0.64px;
+    line-height: 1.25;
+  }
+  @media only screen and (max-width: 501px) {
+    font-size: 15px;
+    letter-spacing: -0.7px;
   }
 `;
 const SubUl = styled.ul`
@@ -324,7 +332,7 @@ const HeaderToggleMenu = styled.div`
   // ★행동 설정★
   @media only screen and (max-width: 767px) {
     position: absolute;
-    top: 20px;
+    top: 17px;
     right: 20px;
   }
 `;
@@ -351,6 +359,22 @@ const ImgToggleMenu = styled.img`
 `;
 
 function HeaderInner(props) {
+  let media767 = matchMedia("screen and (max-width: 767px)");
+  const fixedBanner = 40; // fiedBanner 유(40)무(0)
+  const [scrollTopMargin, setScrollTopMargin] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
+  // const updateScroll = () => {
+  //   setScrollY(window.scrollY || document.documentElement.scrollTop);
+  //   if (media767.matches === true) {
+  //     setScrollTopMargin(56);
+  //   } else if (media767.matches === false) {
+  //     setScrollTopMargin(36 + fixedBanner);
+  //   }
+  // };
+  // useEffect(() => {
+  //   window.addEventListener("scroll", updateScroll);
+  // });
+
   const [visible, setVisible] = useState("none");
   const onClickLangMenu = () => {
     console.log(visible);
@@ -361,26 +385,15 @@ function HeaderInner(props) {
     }
   };
 
-  const [ScrollY, setScrollY] = useState(0);
-  const [ScrollActive, setScrollActive] = useState(false); 
-  function handleScroll() { 
-      if(ScrollY > 36) {
-          setScrollY(window.pageYOffset);
-          setScrollActive(true);
-      } else {
-          setScrollY(window.pageYOffset);
-          setScrollActive(false);
-      }
-  }
-  useEffect(() => {
-      function scrollListener() {  window.addEventListener("scroll", handleScroll); }
-      scrollListener();
-      return () => { window.removeEventListener("scroll", handleScroll); };
-  });
-
   return (
-    <Wrapper className="inner_wrap">
-      <HeaderLogo>
+    <Wrapper
+      // className={scrollY <= scrollTopMargin ? "scroll_top" : "scroll_down"}
+    >
+      <HeaderLogo
+        // className={
+        //   scrollY <= scrollTopMargin ? "scroll_top_767" : "scroll_down_767"
+        // }
+      >
         <ALogo href="">
           <ImgHeaderLogo
             src={"/images/common/logo.png"}
@@ -518,7 +531,11 @@ function HeaderInner(props) {
           </SubLiLang>
         </SubUlLang>
       </HeaderLangMenu>
-      <HeaderToggleMenu>
+      <HeaderToggleMenu
+        // className={
+        //   scrollY <= scrollTopMargin ? "scroll_top_767" : "scroll_down_767"
+        // }
+      >
         <BtnToggleMenu>
           <ImgToggleMenu
             src={"/images/common/btn_menu_ico.png"}

@@ -27,5 +27,17 @@ body {
 }
 
 test {
- justify-content: space-around;
+ display:flex;
+ flex-direction: column;
+ flex-direction: row;
+ 
+ transform: translate(-130px,0);
+
+ justify-content:space-around;
+ align-items:center
+}
+
+@media only screen and (max-width: 1370px) {
+}
+@media only screen and (max-width: 767px) {
 }

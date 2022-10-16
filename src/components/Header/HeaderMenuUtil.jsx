@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   // ★박스 크기 및 여백 설정★
-  width: 100vw;
+  width: 100%;
   height: 36px;
   // ★내부 설정★
   justify-content: flex-end;

@@ -25,6 +25,7 @@ const Wrapper = styled.section`
     margin-bottom: 140px;
   }
   @media only screen and (max-width: 767px) {
+    order: 3;
     margin-bottom: 78px;
     align-items: flex-start;
   }
@@ -67,7 +68,7 @@ const SwiperContainer = styled.div`
 const BtnSwiperPrev = styled.button`
   // ★레이아웃 설정★
   position: absolute;
-  z-index: 120;
+  z-index: 5;
   // ★박스 크기 및 여백 설정★
   width: 60px;
   height: 60px;
@@ -82,8 +83,6 @@ const BtnSwiperPrev = styled.button`
   transform: translate(-10px, -50%);
   // ★행동 설정★
   @media only screen and (max-width: 1370px) {
-    display: inline-flex;
-    z-index: 120;
     left: 10px;
     top: 50%;
     transform: translate(0, -50%);
@@ -104,7 +103,7 @@ const ImgSwiperPrev = styled.img`
 const BtnSwiperNext = styled.button`
   // ★레이아웃 설정★
   position: absolute;
-  z-index: 120;
+  z-index: 5;
   // ★박스 크기 및 여백 설정★
   width: 60px;
   height: 60px;
