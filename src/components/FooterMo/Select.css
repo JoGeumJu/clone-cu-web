@@ -1,0 +1,27 @@
+select {
+  writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: fieldtext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  -webkit-rtl-ordering: logical;
+}
+select::-ms-expand {
+  display: none;
+}
+select:focus {
+  border: 0px;
+  box-sizing: border-box;
+  outline: 0px;
+  border-bottom: 2px solid #000;
+}

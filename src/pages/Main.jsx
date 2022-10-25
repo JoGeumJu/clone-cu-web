@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import FixedBanner from "../components/FixedBanner/FixedBanner";
 import Header from "../components/Header/Header";
 import SectionCUStory from "../components/SectionCUStory/SectionCUStory";
 import SectionCUEvent from "../components/SectionCUEvent/SectionCUEvent";
@@ -27,9 +26,6 @@ const Wrapper = styled.div`
 function Main(props) {
   return (
     <Wrapper id="wrap" className="main">
-      {/* FixedBanner 활성화·비활성화 가능 */}
-      <FixedBanner />
-      {/* FixedBanner 유무 시 scroll 옵션 설정 */}
       <Header style={{ zIndex: "130" }} />
       <SectionCUStory />
       <SectionCUEvent style={{ zIndex: "100" }} />

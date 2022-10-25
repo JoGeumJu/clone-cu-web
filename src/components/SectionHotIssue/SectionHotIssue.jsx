@@ -596,13 +596,29 @@ function SectionHotIssue(props) {
             modules={[Navigation, Pagination, Autoplay]}
             className="swiper_container_hot_issue"
             slidesPerView={2}
+            slidesPerGroup={1}
             spaceBetween={0}
-            pagination={{ clickable: true }}
+            loop={true}
+            loopedslide={10}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            scrollbar={{ draggable: true, el: null }}
+            navigation={{
+              nextEl: ".swiper_button_next_hot_issue",
+              prevEl: ".swiper_button_prev_hot_issue",
+            }}
+            pagination={{
+              el: ".swiper_pagination_hot_issue",
+              clickable: true,
+            }}
             breakpoints={{
               768: {
                 spaceBetween: 0,
                 slidesPerView: 4,
                 slidesPerGroup: 2,
+                slidesOffsetBefore:10,
                 scrollbar: { draggable: true, el: null },
                 navigation: {
                   nextEl: ".swiper_button_next_hot_issue",
