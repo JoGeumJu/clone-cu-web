@@ -3,14 +3,231 @@ import styled from "styled-components";
 import "./MenuHover.css";
 // import "./Scroll.css";
 
+function HeaderInner(props) {
+  // [Scroll]
+  // scroll 작동 기본 height 설정
+  let media767 = matchMedia("screen and (max-width: 767px)");
+  const [heightFixedBanner, setHeightFixedBanner] = useState(0); // fiedBanner 유(40)무(0)
+  const [heightMenuUtil, setHeightMenuUtil] = useState(36);
+  const [heightMenuInner, setHeightMenuInner] = useState(104);
+  // scroll 상태, 값 설정
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isDown, setIsDown] = useState(true);
+  const updateScroll = () => {
+    if (media767.matches === true) {
+      setHeightFixedBanner(0);
+      setHeightMenuInner(104);
+      setHeightMenuUtil(55);
+    } else {
+      setHeightFixedBanner(40); // fiedBanner 유(40)무(0)
+      setHeightMenuInner(104);
+      setHeightMenuUtil(36);
+    }
+    if (window.scrollY >= scrollPosition) {
+      setIsDown(true);
+    } else if (window.scrollY < scrollPosition) {
+      setIsDown(false);
+    }
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", updateScroll);
+  });
+  // scroll 지정
+
+  // LangMenu Click Event
+  const [visible, setVisible] = useState("none");
+  const onClickLangMenu = () => {
+    console.log(visible);
+    if (visible === "none") {
+      setVisible("flex");
+    } else if (visible === "flex") {
+      setVisible("none");
+    }
+  };
+
+  return (
+    <Wrapper
+      isMobile={media767.matches}
+      isScroll={scrollPosition >= heightMenuUtil + heightFixedBanner}
+      isDown={isDown}
+    >
+      <HeaderLogo
+        isMobile={media767.matches}
+        isScroll={scrollPosition >= heightMenuUtil + heightFixedBanner}
+        isDown={isDown}
+      >
+        <ALogo href="">
+          <ImgHeaderLogo
+            src={"/images/common/logo.png"}
+            alt="cu_logo"
+          ></ImgHeaderLogo>
+        </ALogo>
+      </HeaderLogo>
+      <NavHeaderMenu>
+        <Ul>
+          <Li className="depth">
+            <A href="#">CU소개</A>
+            <SubUl className="sub_depth">
+              <SubLi>
+                <SubA>브랜드 스토리</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>디지털 사보</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>CU 갤러리</SubA>
+              </SubLi>
+            </SubUl>
+          </Li>
+          <Li className="depth">
+            <A href="#">상품·서비스</A>
+            <SubUl className="sub_depth">
+              <SubLi>
+                <SubA>전체 상품</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>CU 차별화 상품</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>행사상품</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>생활편의 서비스</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>제휴카드</SubA>
+              </SubLi>
+            </SubUl>
+          </Li>
+          <Li className="depth">
+            <A href="#">매장안내</A>
+          </Li>
+          <Li className="depth">
+            <A href="#">멤버십</A>
+            <SubUl className="sub_depth">
+              <SubLi>
+                <SubA>멤버십 소개</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA href="https://pocketcu.co.kr" target="_blank">
+                  포켓 CU
+                </SubA>
+              </SubLi>
+            </SubUl>
+          </Li>
+          <Li className="depth">
+            <A href="#">창업·상생</A>
+            <SubUl className="sub_depth">
+              <SubLi>
+                <SubA>사업의 이해</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>가맹조건</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>창업 설명회</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>창업 성공기</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>점포물건</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>상생혜택</SubA>
+              </SubLi>
+            </SubUl>
+          </Li>
+          <LiDisappear className="depth">
+            <A href="#">입점상담</A>
+            <SubUl className="sub_depth">
+              <SubLi>
+                <SubA>입점 프로세스</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>기준 안내</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>입점 상담 신청</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA
+                  href="https://www.bgf.co.kr/esg/winwin/vision/"
+                  target="_blank"
+                >
+                  동반 성장
+                </SubA>
+              </SubLi>
+            </SubUl>
+          </LiDisappear>
+          <Li className="depth">
+            <A href="#">새로운소식</A>
+            <SubUl className="sub_depth">
+              <SubLi>
+                <SubA>CU소식</SubA>
+              </SubLi>
+              <SubLi>
+                <SubA>이거 어때</SubA>
+              </SubLi>
+            </SubUl>
+          </Li>
+        </Ul>
+      </NavHeaderMenu>
+      <HeaderLangMenu>
+        <BtnLangMenu onClick={onClickLangMenu}>
+          <DivLang>KR</DivLang>
+          <ImgLang
+            src={"/images/common/btn_lang_menu_ico.png"}
+            alt="btn_lang_menu"
+          />
+        </BtnLangMenu>
+        <SubUlLang style={{ display: `${visible}` }}>
+          <SubLiLang>
+            <SubALang style={{ color: "#fff" }}>KR</SubALang>
+          </SubLiLang>
+          <SubLiLang>
+            <SubALang>EN</SubALang>
+          </SubLiLang>
+          <SubLiLang>
+            <SubALang>CN</SubALang>
+          </SubLiLang>
+        </SubUlLang>
+      </HeaderLangMenu>
+      <HeaderToggleMenu
+        isMobile={media767.matches}
+        isScroll={scrollPosition >= heightMenuUtil + heightFixedBanner}
+        isDown={isDown}
+      >
+        <BtnToggleMenu>
+          <ImgToggleMenu
+            src={"/images/common/btn_menu_ico.png"}
+            alt="btn_toggle_menu"
+          />
+        </BtnToggleMenu>
+      </HeaderToggleMenu>
+    </Wrapper>
+  );
+}
+
+export default HeaderInner;
+
 const Wrapper = styled.div`
-  // ★레이아웃 설정★
+  height: 104px;
   display: flex;
+  ${(props) =>
+    props.isScroll &&
+    "position: fixed; top: 0; border-bottom:1px solid #dbe1dc;"}
+  ${(props) =>
+    props.isMobile &&
+    props.isScroll &&
+    props.isDown &&
+    "position: fixed; top: 0; height:49px; border-bottom:1px solid #dbe1dc;"}
+  // ★레이아웃 설정★
   flex-direction: row;
   // ★박스 크기 및 여백 설정★
   padding: 0 30px;
-  width:100%;
-  height:104px;
+  width: 100%;
   // ★내부 설정★
   background-color: #fff;
   justify-content: center;
@@ -32,6 +249,8 @@ const Wrapper = styled.div`
   }
 `;
 const HeaderLogo = styled.h1`
+  ${(props) =>
+    props.isMobile && props.isScroll && props.isDown && "display: none;"}
   // ★레이아웃 설정★
   // ★박스 크기 및 여백 설정★
   // ★내부 설정★
@@ -56,7 +275,7 @@ const ImgHeaderLogo = styled.img`
   // ★행동 설정★
   @media only screen and (max-width: 767px) {
     width: 95px;
-    padding-top:5px;
+    padding-top: 5px;
   }
 `;
 const NavHeaderMenu = styled.nav`
@@ -326,6 +545,8 @@ const SubALang = styled.a`
   }
 `;
 const HeaderToggleMenu = styled.div`
+  ${(props) =>
+    props.isMobile && props.isScroll && props.isDown && "display: none;"}
   // ★레이아웃 설정★
   // ★박스 크기 및 여백 설정★
   // ★내부 설정★
@@ -357,194 +578,3 @@ const ImgToggleMenu = styled.img`
     height: auto;
   }
 `;
-
-function HeaderInner(props) {
-  let media767 = matchMedia("screen and (max-width: 767px)");
-  const fixedBanner = 40; // fiedBanner 유(40)무(0)
-  const [scrollTopMargin, setScrollTopMargin] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
-  // const updateScroll = () => {
-  //   setScrollY(window.scrollY || document.documentElement.scrollTop);
-  //   if (media767.matches === true) {
-  //     setScrollTopMargin(56);
-  //   } else if (media767.matches === false) {
-  //     setScrollTopMargin(36 + fixedBanner);
-  //   }
-  // };
-  // useEffect(() => {
-  //   window.addEventListener("scroll", updateScroll);
-  // });
-
-  const [visible, setVisible] = useState("none");
-  const onClickLangMenu = () => {
-    console.log(visible);
-    if (visible === "none") {
-      setVisible("flex");
-    } else if (visible === "flex") {
-      setVisible("none");
-    }
-  };
-
-  return (
-    <Wrapper
-      // className={scrollY <= scrollTopMargin ? "scroll_top" : "scroll_down"}
-    >
-      <HeaderLogo
-        // className={
-        //   scrollY <= scrollTopMargin ? "scroll_top_767" : "scroll_down_767"
-        // }
-      >
-        <ALogo href="">
-          <ImgHeaderLogo
-            src={"/images/common/logo.png"}
-            alt="cu_logo"
-          ></ImgHeaderLogo>
-        </ALogo>
-      </HeaderLogo>
-      <NavHeaderMenu>
-        <Ul>
-          <Li className="depth">
-            <A href="#">CU소개</A>
-            <SubUl className="sub_depth">
-              <SubLi>
-                <SubA>브랜드 스토리</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>디지털 사보</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>CU 갤러리</SubA>
-              </SubLi>
-            </SubUl>
-          </Li>
-          <Li className="depth">
-            <A href="#">상품·서비스</A>
-            <SubUl className="sub_depth">
-              <SubLi>
-                <SubA>전체 상품</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>CU 차별화 상품</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>행사상품</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>생활편의 서비스</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>제휴카드</SubA>
-              </SubLi>
-            </SubUl>
-          </Li>
-          <Li className="depth">
-            <A href="#">매장안내</A>
-          </Li>
-          <Li className="depth">
-            <A href="#">멤버십</A>
-            <SubUl className="sub_depth">
-              <SubLi>
-                <SubA>멤버십 소개</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA href="https://pocketcu.co.kr" target="_blank">
-                  포켓 CU
-                </SubA>
-              </SubLi>
-            </SubUl>
-          </Li>
-          <Li className="depth">
-            <A href="#">창업·상생</A>
-            <SubUl className="sub_depth">
-              <SubLi>
-                <SubA>사업의 이해</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>가맹조건</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>창업 설명회</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>창업 성공기</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>점포물건</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>상생혜택</SubA>
-              </SubLi>
-            </SubUl>
-          </Li>
-          <LiDisappear className="depth">
-            <A href="#">입점상담</A>
-            <SubUl className="sub_depth">
-              <SubLi>
-                <SubA>입점 프로세스</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>기준 안내</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>입점 상담 신청</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA
-                  href="https://www.bgf.co.kr/esg/winwin/vision/"
-                  target="_blank"
-                >
-                  동반 성장
-                </SubA>
-              </SubLi>
-            </SubUl>
-          </LiDisappear>
-          <Li className="depth">
-            <A href="#">새로운소식</A>
-            <SubUl className="sub_depth">
-              <SubLi>
-                <SubA>CU소식</SubA>
-              </SubLi>
-              <SubLi>
-                <SubA>이거 어때</SubA>
-              </SubLi>
-            </SubUl>
-          </Li>
-        </Ul>
-      </NavHeaderMenu>
-      <HeaderLangMenu>
-        <BtnLangMenu onClick={onClickLangMenu}>
-          <DivLang>KR</DivLang>
-          <ImgLang
-            src={"/images/common/btn_lang_menu_ico.png"}
-            alt="btn_lang_menu"
-          />
-        </BtnLangMenu>
-        <SubUlLang style={{ display: `${visible}` }}>
-          <SubLiLang>
-            <SubALang style={{ color: "#fff" }}>KR</SubALang>
-          </SubLiLang>
-          <SubLiLang>
-            <SubALang>EN</SubALang>
-          </SubLiLang>
-          <SubLiLang>
-            <SubALang>CN</SubALang>
-          </SubLiLang>
-        </SubUlLang>
-      </HeaderLangMenu>
-      <HeaderToggleMenu
-        // className={
-        //   scrollY <= scrollTopMargin ? "scroll_top_767" : "scroll_down_767"
-        // }
-      >
-        <BtnToggleMenu>
-          <ImgToggleMenu
-            src={"/images/common/btn_menu_ico.png"}
-            alt="btn_toggle_menu"
-          />
-        </BtnToggleMenu>
-      </HeaderToggleMenu>
-    </Wrapper>
-  );
-}
-
-export default HeaderInner;
