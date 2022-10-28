@@ -13,20 +13,22 @@ const Wrapper = styled.header`
   margin: 0;
   padding: 0;
   border: 0;
-  min-height:140px;
+  min-height: 140px;
   // ★내부 설정★
   border-bottom: 1px solid #dbe1dc;
   // ★행동 설정★
   @media only screen and (max-width: 767px) {
-    min-height:104px;
+    min-height: 104px;
   }
 `;
 
 function Header(props) {
+  const getIsToggle = props.getIsToggle;
+
   return (
     <Wrapper id="header">
       <HeaderMenuUtil />
-      <HeaderInner />
+      <HeaderInner getIsToggle={getIsToggle} />
     </Wrapper>
   );
 }

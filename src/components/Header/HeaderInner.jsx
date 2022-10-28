@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./MenuHover.css";
-// import "./Scroll.css";
 
 function HeaderInner(props) {
   // [Scroll]
@@ -36,14 +35,18 @@ function HeaderInner(props) {
   // scroll 지정
 
   // LangMenu Click Event
-  const [visible, setVisible] = useState("none");
+  const [visibleLang, setVisibleLang] = useState("none");
   const onClickLangMenu = () => {
-    console.log(visible);
-    if (visible === "none") {
-      setVisible("flex");
-    } else if (visible === "flex") {
-      setVisible("none");
+    if (visibleLang === "none") {
+      setVisibleLang("flex");
+    } else if (visibleLang === "flex") {
+      setVisibleLang("none");
     }
+  };
+
+  // ToggleMenu Click Event
+  const onClickToggleMenu = () => {
+    props.getIsToggle(true);
   };
 
   return (
@@ -182,7 +185,7 @@ function HeaderInner(props) {
             alt="btn_lang_menu"
           />
         </BtnLangMenu>
-        <SubUlLang style={{ display: `${visible}` }}>
+        <SubUlLang style={{ display: `${visibleLang}` }}>
           <SubLiLang>
             <SubALang style={{ color: "#fff" }}>KR</SubALang>
           </SubLiLang>
@@ -199,7 +202,7 @@ function HeaderInner(props) {
         isScroll={scrollPosition >= heightMenuUtil + heightFixedBanner}
         isDown={isDown}
       >
-        <BtnToggleMenu>
+        <BtnToggleMenu onClick={onClickToggleMenu}>
           <ImgToggleMenu
             src={"/images/common/btn_menu_ico.png"}
             alt="btn_toggle_menu"

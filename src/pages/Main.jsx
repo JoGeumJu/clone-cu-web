@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
+import Banner from "../pages/Banner";
+import TogglePc from "../components/TogglePc/TogglePc";
+import ToggleMo from "../components/ToggleMo/ToggleMo";
 import Header from "../components/Header/Header";
 import SectionCUStory from "../components/SectionCUStory/SectionCUStory";
 import SectionCUEvent from "../components/SectionCUEvent/SectionCUEvent";
@@ -24,9 +27,17 @@ const Wrapper = styled.div`
 `;
 
 function Main(props) {
+  // ToggleMenu Click Event
+  const [isToggle, setIsToggle] = useState(false);
+  const getIsToggle = (isToggle) => {
+    setIsToggle(isToggle);
+  };
+
   return (
     <Wrapper id="wrap" className="main">
-      <Header style={{ zIndex: "130" }} />
+      {/* FixedBanner 활성화·비활성화 가능 */}
+      <Banner />
+      <Header getIsToggle={getIsToggle} style={{ zIndex: "130" }} />
       <SectionCUStory />
       <SectionCUEvent style={{ zIndex: "100" }} />
       <SectionHotIssue style={{ zIndex: "100" }} />
@@ -37,6 +48,9 @@ function Main(props) {
       <SectionSearchCU />
       <SectionStory />
       <SectionCUStore />
+      {/* Toggle Popup Page */}
+      <TogglePc isToggle={isToggle} getIsToggle={getIsToggle} />
+      <ToggleMo isToggle={isToggle} getIsToggle={getIsToggle} />
     </Wrapper>
   );
 }

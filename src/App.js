@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import "./App.css";
 
-import Banner from "./pages/Banner";
 import Main from "./pages/Main";
 import Footer from "./pages/Footer";
 
@@ -20,8 +19,6 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      {/* FixedBanner 활성화·비활성화 가능 */}
-      <Banner />
       <Main />
       <Footer />
     </Wrapper>
